@@ -146,11 +146,11 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Nivel 2\TPFinalNivel2_Torres\dominio\dominio.csproj">
+    <ProjectReference Include="..\dominio\dominio.csproj">
       <Project>{05c4626c-1315-4f09-9182-16ec6ecf7ee8}</Project>
       <Name>dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Nivel 2\TPFinalNivel2_Torres\negocio\negocio.csproj">
+    <ProjectReference Include="..\negocio\negocio.csproj">
       <Project>{31507f69-9555-4f30-a262-772c41076fab}</Project>
       <Name>negocio</Name>
     </ProjectReference>
