@@ -17,7 +17,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta("select Id, Descripcion from CATEGORIAS");
+                datos.setConsulta("SELECT Id, Descripcion FROM CATEGORIAS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -48,7 +48,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("insert into CATEGORIAS (Descripcion) values (@Categoria)");
+                datos.setConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Categoria)");
                 datos.setParametro("@Categoria", nueva.Descripcion);
 
                 datos.ejecutarAccion();
@@ -71,7 +71,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta("select Descripcion from CATEGORIAS");
+                datos.setConsulta("SELECT Descripcion FROM CATEGORIAS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
