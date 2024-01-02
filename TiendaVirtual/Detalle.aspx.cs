@@ -17,11 +17,9 @@ namespace TiendaVirtual
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             int id;
-            string idObt = ""; //id obtenido del querystring
-
             if (Request.QueryString["id"] != null)
             {
-                idObt = Request.QueryString["id"].ToString();
+                string idObt = Request.QueryString["id"].ToString();
                 if (idObt == "none")
                 {
                     nombreItem.InnerText = "Artículo no disponible";

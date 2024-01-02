@@ -16,6 +16,7 @@ namespace TiendaVirtual
     public partial class Default : System.Web.UI.Page
     {
         public List<Articulo> articulos = new List<Articulo>();
+        bool favEstado;
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -36,26 +37,51 @@ namespace TiendaVirtual
             List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
             List<Articulo> filtro = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtBuscar.Text.ToUpper()) || x.Marca.Descripcion.ToUpper().Contains(txtBuscar.Text.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(txtBuscar.Text.ToUpper()));
 
-            if(filtro.Count == 0)
+            if (filtro.Count == 0)
             {
-                mensajeNoEncontrado.Style.Add("display","block");
+                mensajeNoEncontrado.Style.Add("display", "block");
             }
 
             repRepetidor.DataSource = filtro;
-            repRepetidor.DataBind();            
+            repRepetidor.DataBind();
+            txtBuscar.Focus();
         }
 
         protected void repRepetidor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            string id = e.CommandArgument.ToString();
-            try
+            if (e.CommandName == "Info")
             {
-                Response.Redirect("Detalle.aspx?id=" + id, false);
+                string id = e.CommandArgument.ToString();
+                try
+                {
+                    Response.Redirect("Detalle.aspx?id=" + id, false);
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("Detalle.aspx?id=none", false);
+                }
             }
-            catch (Exception)
+        }
+
+        protected void btnAFavorito_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+
+            string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
+            string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
+
+            if (btn.ImageUrl == noEsFav)
             {
-                Response.Redirect("Detalle.aspx?id=none", false);
+                favEstado = true;
+                btn.ImageUrl = esFav;
             }
+            else
+            {
+                favEstado= false;
+                btn.ImageUrl = noEsFav;
+            }
+
+
         }
     }
 }
