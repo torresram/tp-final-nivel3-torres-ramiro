@@ -18,3 +18,10 @@
 --SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.ImagenUrl, A.IdMarca, A.IdCategoria, A.Precio 
 --FROM ARTICULOS A, MARCAS M, CATEGORIAS C 
 --WHERE A.IdMarca = M.Id and A.IdCategoria = C.Id and A.Id = @id
+
+--INSERT INTO FAVORITOS (IdUser, IdArticulo) VALUES (1,2)
+
+create procedure storedFavoritos @id int as
+SELECT F.Id, U.email Usuario,A.Nombre Articulo 
+FROM FAVORITOS F, USERS U, ARTICULOS A 
+WHERE U.Id = F.IdUser and A.Id = F.IdArticulo and U.Id = @id
