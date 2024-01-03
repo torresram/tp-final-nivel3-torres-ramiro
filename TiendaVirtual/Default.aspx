@@ -21,10 +21,10 @@
                     <ItemTemplate>
                         <div class="col">
                             <div class="card" style="width: 18rem; margin: auto;">
-                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='https://icon-library.com/images/no-image-icon/no-image-icon-13.jpg'">
+                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
                                 <div class="card-body">
                                     <div class="row justify-content-end">
-                                        <asp:ImageButton ImageUrl="https://www.iconninja.com/files/561/918/415/heart-icon.png" runat="server" CssClass="btn justify-content-end" style="position:absolute; width:auto; height:35px;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
+                                        <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" style="position:absolute; width:auto; height:35px; border-color:transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
                                     </div>
                                     <h5 class="card-title"><%#Eval("Nombre") %></h5>
                                     <p class="card-text" style="font-size: small;"><%#Eval("Marca")%></p>

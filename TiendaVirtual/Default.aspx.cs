@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.EnterpriseServices;
@@ -67,8 +68,10 @@ namespace TiendaVirtual
         {
             ImageButton btn = (ImageButton)sender;
 
-            string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
-            string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
+            //string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
+            //string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
+            string noEsFav = ResolveUrl("~/Images/heart.png");
+            string esFav = ResolveUrl("~/Images/heartFill.png");
 
             if (btn.ImageUrl == noEsFav)
             {
