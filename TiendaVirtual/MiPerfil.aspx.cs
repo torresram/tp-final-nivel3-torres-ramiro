@@ -13,5 +13,10 @@ namespace TiendaVirtual
         {
 
         }
+
+        protected void btnPerfilImg_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

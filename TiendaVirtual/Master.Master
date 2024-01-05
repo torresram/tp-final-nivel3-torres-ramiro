@@ -52,10 +52,10 @@
                             else
                             {
                         %>
-                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" /> 
+                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" />
                         <asp:Label Text="usuario" ID="lblUsuario" CssClass="text-light m-auto me-2" runat="server" />
                         <%} %>
-                        <asp:Image ID="imgAvatar" style="height:40px; width:40px; border-radius:50%; margin-left:7px;" runat="server" />
+                        <asp:Image ID="imgAvatar" Style="height: 40px; width: 40px; border-radius: 50%; margin-left: 7px;" runat="server" />
                     </div>
                 </div>
             </nav>
