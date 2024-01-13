@@ -1,14 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TiendaVirtual.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        @media (min-width: 768px) {
+            .row-cols-md-2 > * {
+                flex: 0 0 auto;
+                width: 70%;
+            }
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <h2 class="text-center display-6">Bienvenido a la tienda virtual con precios y artículos del 2020 o antes</h2>
     <asp:UpdatePanel runat="server" ChildrenAsTriggers="true">
         <ContentTemplate>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col-10 d-flex" style="padding-top: 60px; width: 70%; margin: auto;">
+            <div class="row row-cols-md-2 g-4">
+                <div class="d-flex" style="padding-top: 60px; margin: auto;">
                     <asp:TextBox runat="server" ID="txtBuscar" CssClass="form-control me-2" placeholder="Buscar" aria-label="Buscar" />
                     <asp:Button Text="Buscar" ID="btnBuscar" runat="server" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
                 </div>
@@ -16,7 +24,7 @@
                     <h2 class="h5" runat="server" id="mensajeNoEncontrado" style="display: none; margin-top: 20px; text-align: center;">No se encontró el artículo.</h2>
                 </div>
             </div>
-            <div class="row row-cols-2 row-cols-md-3 g-4" style="padding-top: 30px;">
+            <div class="row row-cols-md-3 g-4" style="padding-top: 30px;">
                 <asp:Repeater runat="server" ID="repRepetidor" OnItemCommand="repRepetidor_ItemCommand">
                     <ItemTemplate>
                         <div class="col">
@@ -24,7 +32,7 @@
                                 <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
                                 <div class="card-body">
                                     <div class="row justify-content-end">
-                                        <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" style="position:absolute; width:auto; height:35px; border-color:transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
+                                        <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" Style="position: absolute; width: auto; height: 35px; border-color: transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
                                     </div>
                                     <h5 class="card-title"><%#Eval("Nombre") %></h5>
                                     <p class="card-text" style="font-size: small;"><%#Eval("Marca")%></p>
