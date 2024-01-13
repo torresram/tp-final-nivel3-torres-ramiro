@@ -25,3 +25,6 @@
 --SELECT F.Id, U.email Usuario,A.Nombre Articulo 
 --FROM FAVORITOS F, USERS U, ARTICULOS A 
 --WHERE U.Id = F.IdUser and A.Id = F.IdArticulo and U.Id = @id
+
+--create procedure nuevoUsuario @email varchar, @pass varchar as
+--INSERT INTO USERS (email, pass, admin) output inserted.id VALUES (@email, @pass, 0)
