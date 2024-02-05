@@ -22,11 +22,11 @@ namespace negocio
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-
-
             try
             {
-                datos.setConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.ImagenUrl, A.IdMarca, A.IdCategoria, A.Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id and A.IdCategoria = C.Id");
+                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.ImagenUrl, A.IdMarca, A.IdCategoria, A.Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id and A.IdCategoria = C.Id";
+
+                datos.setConsulta(consulta);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -124,13 +124,63 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-        public void modificar(Articulo articulo)
+        public void agregarSP(Articulo nuevo)
         {
-
-
             try
             {
-                datos.setConsulta("update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Desc, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @ImagenUrl, Precio = @Precio where Id = @id");
+                datos.setProcedimiento("storedAgregar");
+
+                datos.setParametro("@codigo", nuevo.Codigo);
+                datos.setParametro("@nombre", nuevo.Nombre);
+                datos.setParametro("@descripcion", nuevo.Descripcion);
+                datos.setParametro("@idMarca", nuevo.Marca.Id);
+                datos.setParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setParametro("@imagenUrl", nuevo.ImagenURL);
+                datos.setParametro("@precio", nuevo.Precio);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificar(Articulo articulo)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Desc, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @ImagenUrl, Precio = @Precio WHERE Id = @id");
+                datos.setParametro("@id", articulo.Id);
+                datos.setParametro("@Codigo", articulo.Codigo);
+                datos.setParametro("@Nombre", articulo.Nombre);
+                datos.setParametro("@Desc", articulo.Descripcion);
+                datos.setParametro("@idMarca", articulo.Marca.Id);
+                datos.setParametro("@idCategoria", articulo.Categoria.Id);
+                datos.setParametro("@ImagenUrl", articulo.ImagenURL);
+                datos.setParametro("@Precio", articulo.Precio);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificarSP(Articulo articulo)
+        {
+            try
+            {
+                datos.setProcedimiento("storedModificar");
+
                 datos.setParametro("@id", articulo.Id);
                 datos.setParametro("@Codigo", articulo.Codigo);
                 datos.setParametro("@Nombre", articulo.Nombre);
