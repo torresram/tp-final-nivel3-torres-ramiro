@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TiendaVirtual
 {
-    public partial class MiPerfil : System.Web.UI.Page
+    public partial class Error : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void btnPerfilImg_Click(object sender, EventArgs e)
-        {
-
+            msgError.InnerHtml = Session["error"].ToString();
         }
     }
 }

@@ -29,7 +29,7 @@
         <div class="col-md-8" style="border: solid 2px #bab6b6; border-radius: 20px; position: relative; margin: auto;">
             <div class="col-9" style="margin: auto;">
                 <div class="mb-3" style="margin-top: 15px;">
-                    <label>ID XXX</label>
+                    <label runat="server" id="lblId">ID XXX</label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nombre:</label>

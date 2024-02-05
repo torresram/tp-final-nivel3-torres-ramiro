@@ -24,6 +24,15 @@ namespace TiendaVirtual
         protected global::System.Web.UI.WebControls.Button btnPerfilImg;
 
         /// <summary>
+        /// Control lblId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblId;
+
+        /// <summary>
         /// Control txtNombre.
         /// </summary>
         /// <remarks>
