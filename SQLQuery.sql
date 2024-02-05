@@ -1,4 +1,4 @@
- --select * from ARTICULOSj
+--select * from ARTICULOS
 --select * from CATEGORIAS
 --select * from FAVORITOS
 --select * from MARCAS
@@ -26,5 +26,17 @@
 --FROM FAVORITOS F, USERS U, ARTICULOS A 
 --WHERE U.Id = F.IdUser and A.Id = F.IdArticulo and U.Id = @id
 
---create procedure nuevoUsuario @email varchar, @pass varchar as
+--CREATE PROCEDURE storedAgregar 
+--@codigo varchar(50), @nombre varchar (50), @descripcion varchar (150), @idMarca int, @idCategoria int,
+--@imagenUrl varchar(1000), @precio money as
+--INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl,Precio) 
+--VALUES (@codigo, @nombre, @descripcion, @idMarca, @idCategoria, @imagenUrl, @precio)
+
+--CREATE PROCEDURE storedModificar
+--@id int,@codigo varchar(50), @nombre varchar (50), @desc varchar (150), @idMarca int, @idCategoria int,
+--@imagenUrl varchar(1000), @precio money as
+--UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @imagenUrl, Precio = @precio
+--WHERE Id = @id
+
+--alter procedure nuevoUsuario @email varchar(100), @pass varchar(20) as
 --INSERT INTO USERS (email, pass, admin) output inserted.id VALUES (@email, @pass, 0)
