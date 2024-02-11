@@ -37,5 +37,10 @@ namespace TiendaVirtual
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataBind();
         }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdmArt.aspx", false);
+        }
     }
 }

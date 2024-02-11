@@ -29,7 +29,7 @@
                     <ItemTemplate>
                         <div class="col">
                             <div class="card" style="width: 18rem; margin: auto;">
-                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
+                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;padding:10px;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
                                 <div class="card-body">
                                     <div class="row justify-content-end">
                                         <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" Style="position: absolute; width: auto; height: 35px; border-color: transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
