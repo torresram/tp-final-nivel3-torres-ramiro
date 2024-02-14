@@ -61,6 +61,13 @@ namespace TiendaVirtual
                     txtImgUrl.Text = seleccion.ImagenURL;
                     txtImgUrl_TextChanged(sender, e);
                 }
+                else if(!IsPostBack)
+                {
+                    h2Titulo.InnerHtml = "Nuevo artículo";
+                    lblIdArticulo.Style.Add("display", "none");
+                    btnEliminar.Enabled = false;
+                    chkGuardarDiv.Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -148,7 +155,7 @@ namespace TiendaVirtual
                     precioError(0);
                     txtPrecio.Focus();
                     errorCont++;
-                }
+                }                
 
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Codigo = txtCodigo.Text.ToUpper();
@@ -157,7 +164,7 @@ namespace TiendaVirtual
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
-                nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.Descripcion = txtDescripcion.Text;                
                 nuevo.ImagenURL = txtImgUrl.Text;
 
                 if (errorCont > 0)
@@ -169,8 +176,18 @@ namespace TiendaVirtual
 
                 if (Request.QueryString["id"] != null)
                 {
-                    nuevo.Id = int.Parse(id);
-                    negocio.modificarSP(nuevo);
+                    if(chkGuardar.Checked == true)
+                    {
+                        nuevo.Id = int.Parse(id);
+                        negocio.modificarSP(nuevo);
+                    }
+                    else
+                    {
+                        chkGuardarDiv.Style.Add("border", "solid 2px");
+                        chkGuardarDiv.Style.Add("border-radius", "20px");
+                        chkGuardarDiv.Style.Add("border-color", "#fdf90e");
+                        return;
+                    }
                 }
                 else
                 {
@@ -241,5 +258,28 @@ namespace TiendaVirtual
             }
             return true;
         }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmarEliminar = true;
+        }
+        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkEliminar.Checked)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.eliminar(int.Parse(articuloElegido.Id.ToString()));
+                    Response.Redirect("Articulos.aspx", false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+        }
+
     }
 }
