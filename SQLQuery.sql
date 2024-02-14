@@ -4,6 +4,9 @@
 --select * from MARCAS
 --select * from USERS
 
+--UPDATE USERS SET urlImagenPerfil = '' WHERE Id = 1
+--UPDATE USERS SET pass = '' WHERE Id = 1
+
 --CREATE PROCEDURE storedListar as
 --SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.ImagenUrl, A.IdMarca, A.IdCategoria, A.Precio 
 --FROM ARTICULOS A, MARCAS M, CATEGORIAS C 
@@ -40,3 +43,5 @@
 
 --alter procedure nuevoUsuario @email varchar(100), @pass varchar(20) as
 --INSERT INTO USERS (email, pass, admin) output inserted.id VALUES (@email, @pass, 0)
+
+--SELECT Id, email, pass,nombre,apellido, urlImagenPerfil, admin FROM USERS WHERE email='' and pass = ''
