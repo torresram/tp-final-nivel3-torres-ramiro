@@ -15,6 +15,24 @@ namespace TiendaVirtual
     {
 
         /// <summary>
+        /// Control updFavoritos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updFavoritos;
+
+        /// <summary>
+        /// Control mensajeNoFavs.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeNoFavs;
+
+        /// <summary>
         /// Control repFavoritos.
         /// </summary>
         /// <remarks>

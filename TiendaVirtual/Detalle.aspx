@@ -53,10 +53,13 @@
     </div>
     <div class="row justify-content-center" style="margin-top:30px;">
         <div class="col-3 d-flex align-self-start">
-            <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-primary" />
+            <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-primary btn-sm" />
         </div>
         <div class="col-3 d-flex justify-content-end">
-            <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success" />
+            <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success btn-sm" />
         </div>
+    </div>
+    <div class="row justify-content-center">
+        <a href="Default.aspx" class="btn btn-outline-info btn-sm" style="width:fit-content;">Volver...</a>
     </div>
 </asp:Content>

@@ -2,5 +2,5 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <p runat="server" id="msgError"></p>
+    <p class="display-5" runat="server" id="msgError" style="text-align:center;"></p>
 </asp:Content>

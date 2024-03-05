@@ -29,10 +29,10 @@
                     <ItemTemplate>
                         <div class="col">
                             <div class="card" style="width: 18rem; margin: auto;">
-                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%;padding:10px;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
+                                <img src="<%#Eval("ImagenUrl")%>" class="card-img-top object-fit-contain" style="height: 200px; width: 100%; padding: 10px;" alt="<%#Eval("Nombre") %>" onerror="this.onerror=null; this.src='./Images/noImageIcon.jpg'">
                                 <div class="card-body">
                                     <div class="row justify-content-end">
-                                        <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" Style="position: absolute; width: auto; height: 35px; border-color: transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" />
+                                        <asp:ImageButton ImageUrl='<%# ResolveUrl("~/Images/heart.png") %>' runat="server" CssClass="btn justify-content-end" Style="position: absolute; width: auto; height: 35px; border-color: transparent;" ID="btnAFavorito" OnClick="btnAFavorito_Click" CommandName="Fav" CommandArgument='<%#Eval("Id") %>' />
                                     </div>
                                     <h5 class="card-title"><%#Eval("Nombre") %></h5>
                                     <p class="card-text" style="font-size: small;"><%#Eval("Marca")%></p>
@@ -46,6 +46,19 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
+            </div>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" runat="server" id="toast">
+                    <div class="toast-header">
+                        <img src="./Images/notificacion.png" class="rounded me-2" alt="alerta" style="height: 20px;">
+                        <strong class="me-auto">Atención</strong>
+                        <%--<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>--%>
+                        <asp:Button Text="" CssClass="btn-close" runat="server" ID="btnCerrarNotificacion" OnClick="btnCerrarNotificacion_Click" />
+                    </div>
+                    <div class="toast-body" style="text-align: center;">
+                        Debe iniciar sesión para añadir favoritos.
+                    </div>
+                </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

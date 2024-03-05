@@ -62,29 +62,72 @@ namespace TiendaVirtual
                     Response.Redirect("Detalle.aspx?id=none", false);
                 }
             }
+
+            if (e.CommandName == "Fav")
+            {
+                Usuario user = (Usuario)Session["usuario"];
+                FavoritosNegocio favorito = new FavoritosNegocio();
+
+                if (user != null)
+                {
+                    int idUser = user.Id;
+                    int idArt = int.Parse(e.CommandArgument.ToString());
+
+                    try
+                    {
+                        if (favEstado)
+                        {
+                            favorito.quitarFav(idUser, idArt);
+                        }
+                        else
+                        {
+                            favorito.agregarFav(idUser, idArt);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+            }
         }
 
         protected void btnAFavorito_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton btn = (ImageButton)sender;
+            Usuario user = (Usuario)Session["usuario"];
 
-            //string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
-            //string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
-            string noEsFav = ResolveUrl("~/Images/heart.png");
-            string esFav = ResolveUrl("~/Images/heartFill.png");
-
-            if (btn.ImageUrl == noEsFav)
+            if (user != null)
             {
-                favEstado = true;
-                btn.ImageUrl = esFav;
+                ImageButton btn = (ImageButton)sender;
+
+                //string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
+                //string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
+                string noEsFav = ResolveUrl("~/Images/heart.png");
+                string esFav = ResolveUrl("~/Images/heartFill.png");
+
+                if (btn.ImageUrl == noEsFav)
+                {
+                    favEstado = false;
+                    btn.ImageUrl = esFav;
+                }
+                else
+                {
+                    favEstado = true;
+                    btn.ImageUrl = noEsFav;
+                }
             }
             else
             {
-                favEstado= false;
-                btn.ImageUrl = noEsFav;
+                toast.Style.Add("display", "block");
             }
 
 
+        }
+
+        protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
+        {
+            toast.Style.Remove("display");
         }
     }
 }

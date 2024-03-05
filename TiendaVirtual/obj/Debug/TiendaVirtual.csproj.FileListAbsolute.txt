@@ -54,10 +54,10 @@ C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVirtual.csproj.AssemblyReference.cache
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVirtual.csproj.CoreCompileInputs.cache
-C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVirtual.csproj.CopyComplete
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVirtual.dll
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVirtual.pdb
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\bin\dominio.dll
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\bin\negocio.dll
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\bin\dominio.pdb
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\bin\negocio.pdb
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\TiendaVirtual\obj\Debug\TiendaVi.47C15EA4.Up2Date
