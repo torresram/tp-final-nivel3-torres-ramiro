@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using dominio;
@@ -51,10 +52,28 @@ namespace negocio
                 datos.setParametro("@pass", usuario.Password);
                 datos.ejecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void actualizarDatos(Usuario usuario)
+        {
+            try
+            {
+                datos.setConsulta("UPDATE USERS SET nombre = @nombre, apellido = @apellido WHERE id = @id");
+                datos.setParametro("@id", usuario.Id);
+                datos.setParametro("@apellido", usuario.Apellido);
+                datos.setParametro("@nombre", usuario.Nombre);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion() ; } 
         }
 
         public bool login(Usuario usuario)

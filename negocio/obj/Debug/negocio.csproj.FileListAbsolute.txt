@@ -22,6 +22,6 @@ C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\bin\Debug\dominio.pdb
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.csproj.AssemblyReference.cache
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.csproj.CoreCompileInputs.cache
-C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.csproj.CopyComplete
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.dll
 C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.pdb
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Debug\negocio.csproj.Up2Date

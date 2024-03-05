@@ -1,17 +1,20 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel.Design.Serialization;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using dominio;
+using Microsoft.Win32;
 
 namespace negocio
 {
@@ -367,7 +370,7 @@ namespace negocio
                 throw ex;
             }
             finally { datos.cerrarConexion(); }
-        }
+        }        
     }
 }
 
