@@ -57,7 +57,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void quitarFav(int idUser, int idArticulo)
         {
             try
@@ -66,6 +65,31 @@ namespace negocio
                 datos.setParametro("@idUser", idUser);
                 datos.setParametro("@idArticulo", idArticulo);
                 datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public bool esFav(int idUser, int idArticulo)
+        {
+            try
+            {
+                datos.setConsulta("SELECT IdUser, IdArticulo FROM FAVORITOS WHERE IdUser=@idUser AND IdArticulo = @idArticulo");
+                datos.setParametro("@idUser", idUser);
+                datos.setParametro("@idArticulo", idArticulo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

@@ -13,8 +13,8 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using dominio;
 using Microsoft.Win32;
+using dominio;
 
 namespace negocio
 {
