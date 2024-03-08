@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,13 @@ namespace TiendaVirtual
             usuario = (Usuario)Session["usuario"];
             imgAvatar.ImageUrl = ResolveUrl("~/Images/userDefault.png");
 
+            if (!(Page is Login || Page is Registro || Page is Default || Page is Error || Page is Detalle || Page is AdmArt))
+            {
+                if (!Seguridad.sesionActiva(usuario))
+                {
+                    Response.Redirect("Login.aspx", false);
+                }
+            }
             if (usuario != null)
             {
                 if (!string.IsNullOrEmpty(usuario.Nombre))

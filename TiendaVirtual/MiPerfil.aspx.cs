@@ -81,16 +81,24 @@ namespace TiendaVirtual
                     txtPassActual.BorderWidth = 1;
                 }
 
-                if (nuevoPass != checkPass)
+                if (!(string.IsNullOrEmpty(nuevoPass) || string.IsNullOrEmpty(checkPass)))
                 {
-                    passError(1);
-                    errorCont++;
+                    if (nuevoPass != checkPass)
+                    {
+                        passError(1);
+                        errorCont++;
+                    }
+                    else
+                    {
+                        nuevoPassMensajes.Style.Add("display", "none");
+                        txtPassCheck.Style.Add("border-color", "#dee2e6");
+                        txtPassCheck.BorderWidth = 1;
+                    }
                 }
                 else
                 {
-                    nuevoPassMensajes.Style.Add("display", "none");
-                    txtPassCheck.Style.Add("border-color", "#dee2e6");
-                    txtPassCheck.BorderWidth = 1;
+                    passError(2);
+                    errorCont++;
                 }
 
                 if (errorCont > 0)
@@ -102,6 +110,8 @@ namespace TiendaVirtual
                     usuario.Password = checkPass;
                     negocio.actualizarPass(usuario);
                     cambiarPassDiv.Style.Add("display", "none");
+                    btnCambiarPass.Enabled = true;
+                    liveToast.Style.Add("display","block");
                 }
             }
             catch (Exception ex)
@@ -112,16 +122,7 @@ namespace TiendaVirtual
         }
         protected void btnCancelarPass_Click(object sender, EventArgs e)
         {
-            txtPassActual.Text = string.Empty;
-            txtPassNueva.Text = string.Empty;
-            txtPassCheck.Text = string.Empty;
-            cambiarPassDiv.Style.Add("display", "none");
-            txtPassActual.Style.Add("border-color", "#dee2e6");
-            txtPassNueva.Style.Add("border-color", "#dee2e6");
-            txtPassCheck.Style.Add("border-color", "#dee2e6");
-            actualPassMensajes.Style.Add("display", "none");
-            nuevoPassMensajes.Style.Add("display", "none");
-            btnCambiarPass.Enabled = true;
+            
         }
         protected void btnPerfilImg_Click(object sender, EventArgs e)
         {
@@ -177,6 +178,24 @@ namespace TiendaVirtual
                 esAdminDiv.Visible = true;
             }
         }
+        protected void btnGuardarDatos_Click(object sender, EventArgs e)
+        {
+            UsuarioNegocio negocio = new UsuarioNegocio();
+            usuario = (Usuario)Session["usuario"];
+
+            if (nombreOriginal != txtNombre.Text || apellidoOriginal != txtApellido.Text)
+            {
+                usuario.Nombre = txtNombre.Text;
+                usuario.Apellido = txtApellido.Text;
+                negocio.actualizarDatos(usuario);
+                liveToast.Style.Add("display", "block");
+            }
+        }
+
+        protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
+        {
+            liveToast.Style.Remove("display");
+        }
         protected void passError(int error)
         {
             switch (error)
@@ -197,27 +216,30 @@ namespace TiendaVirtual
                     txtPassCheck.BorderWidth = 1;
                     txtPassCheck.Focus();
                     break;
+                case 2:
+                    nuevoPassMensajes.Style.Remove("display");
+                    nuevoPassMensajes.InnerHtml = "Los campos no pueden ser vacíos";
+                    nuevoPassMensajes.Style.Add("color", "red");
+                    txtPassCheck.Style.Add("border-color", "red");
+                    txtPassCheck.BorderWidth = 1;
+                    txtPassCheck.Focus();
+                    break;
                 default:
                     break;
             }
         }
-        protected void btnGuardarDatos_Click(object sender, EventArgs e)
+        protected void txtFormato()
         {
-            UsuarioNegocio negocio = new UsuarioNegocio();
-            usuario = (Usuario)Session["usuario"];
-
-            if (nombreOriginal != txtNombre.Text || apellidoOriginal != txtApellido.Text)
-            {
-                usuario.Nombre = txtNombre.Text;
-                usuario.Apellido = txtApellido.Text;
-                negocio.actualizarDatos(usuario);
-                liveToast.Style.Add("display", "block");
-            }
-        }
-
-        protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
-        {
-            liveToast.Style.Remove("display");
+            txtPassActual.Text = string.Empty;
+            txtPassNueva.Text = string.Empty;
+            txtPassCheck.Text = string.Empty;
+            cambiarPassDiv.Style.Add("display", "none");
+            txtPassActual.Style.Add("border-color", "#dee2e6");
+            txtPassNueva.Style.Add("border-color", "#dee2e6");
+            txtPassCheck.Style.Add("border-color", "#dee2e6");
+            actualPassMensajes.Style.Add("display", "none");
+            nuevoPassMensajes.Style.Add("display", "none");
+            btnCambiarPass.Enabled = true;
         }
     }
 }

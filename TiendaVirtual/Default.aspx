@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row row-cols-md-3 g-4" style="padding-top: 30px;">
-                <asp:Repeater runat="server" ID="repRepetidor" OnItemCommand="repRepetidor_ItemCommand">
+                <asp:Repeater runat="server" ID="repRepetidor" OnItemCommand="repRepetidor_ItemCommand" OnItemDataBound="repRepetidor_ItemDataBound">
                     <ItemTemplate>
                         <div class="col">
                             <div class="card" style="width: 18rem; margin: auto;">
@@ -38,7 +38,7 @@
                                     <p class="card-text" style="font-size: small;"><%#Eval("Marca")%></p>
                                     <p class="card-text lead" style="font-weight: 400">$<%#(Math.Truncate(100 * (decimal)Eval("Precio")) / 100)%></p>
                                     <div class="d-flex">
-                                        <asp:Button Text="Añadir al carrito" runat="server" ID="btnAddCarrito" CssClass="btn btn-primary" />
+                                        <asp:Button Text="Añadir al carrito" runat="server" ID="btnAddCarrito" CssClass="btn btn-warning btn-sm" />
                                         <asp:LinkButton ID="lnkMasInfo" runat="server" Style="padding-left: 10px; font-size: small; align-self: center;" CommandName="Info" CommandArgument='<%#Eval("Id") %>'>Más información</asp:LinkButton>
                                     </div>
                                 </div>

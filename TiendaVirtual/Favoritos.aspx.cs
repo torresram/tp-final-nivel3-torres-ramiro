@@ -19,7 +19,7 @@ namespace TiendaVirtual
         {
             Usuario usuario = (Usuario)Session["usuario"];
             FavoritosNegocio negocio = new FavoritosNegocio();
-
+            
             try
             {
                 if (usuario != null)
@@ -60,8 +60,6 @@ namespace TiendaVirtual
                 {
                     favorito.quitarFav(idUser, idArticulo);
                     refresh = true;
-                    //favoritos.Clear();
-                    //Session.Remove("listaFavs");
                     Page_Load(Page, e);
                 }
             }

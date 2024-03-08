@@ -62,7 +62,6 @@ namespace TiendaVirtual
                     Response.Redirect("Detalle.aspx?id=none", false);
                 }
             }
-
             if (e.CommandName == "Fav")
             {
                 Usuario user = (Usuario)Session["usuario"];
@@ -92,7 +91,6 @@ namespace TiendaVirtual
                 }
             }
         }
-
         protected void btnAFavorito_Click(object sender, ImageClickEventArgs e)
         {
             Usuario user = (Usuario)Session["usuario"];
@@ -121,13 +119,35 @@ namespace TiendaVirtual
             {
                 toast.Style.Add("display", "block");
             }
-
-
         }
-
         protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
         {
             toast.Style.Remove("display");
+        }
+
+        protected void repRepetidor_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            Usuario user = (Usuario)Session["usuario"];
+            if (user != null)
+            {
+                if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+                {
+                    Articulo articulo = (Articulo)e.Item.DataItem;
+                    FavoritosNegocio favorito = new FavoritosNegocio();
+                    ImageButton btnAFavorito = (ImageButton)e.Item.FindControl("btnAFavorito");
+
+                    favEstado = favorito.esFav(user.Id, articulo.Id);
+
+                    if (favEstado)
+                    {
+                        btnAFavorito.ImageUrl = ResolveUrl("~/Images/heartFill.png");
+                    }
+                    else
+                    {
+                        btnAFavorito.ImageUrl = ResolveUrl("~/Images/heart.png");
+                    }
+                }
+            }
         }
     }
 }

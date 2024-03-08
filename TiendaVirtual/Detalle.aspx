@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <asp:ScriptManager runat="server" />
     <div runat="server" id="detalleArticulo">
         <div class="row">
             <h3 runat="server" id="nombreItem" class="display-5 text-center" style="font-weight: bold;">Características <%#articulo.Nombre %></h3>
@@ -51,15 +52,32 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center" style="margin-top:30px;">
-        <div class="col-3 d-flex align-self-start">
-            <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-primary btn-sm" />
-        </div>
-        <div class="col-3 d-flex justify-content-end">
-            <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success btn-sm" />
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <a href="Default.aspx" class="btn btn-outline-info btn-sm" style="width:fit-content;">Volver...</a>
-    </div>
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            <div class="row row-cols-3" style="margin-top: 30px;">
+                <div class="col-6 d-flex">
+                    <asp:Button Text="Volver..." CssClass="btn btn-outline-info btn-sm" ID="btnVolver" runat="server" OnClick="btnVolver_Click" Style="width: fit-content; position: relative; margin: 0px 52%;" />
+                </div>
+                <div class="col d-flex align-self-end" style="width: fit-content;">
+                    <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-warning btn-sm" Style="margin: 0px 56%;" OnClick="btnAlCarrito_Click" />
+                </div>
+                <div class="col d-flex align-self-end" style="width: fit-content;">
+                    <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success btn-sm" Style="margin: 0px 36%;" OnClick="btnAFavoritos_Click" />
+                </div>
+            </div>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" runat="server" id="toast">
+                    <div class="toast-header">
+                        <img src="./Images/notificacion.png" class="rounded me-2" alt="alerta" style="height: 20px;">
+                        <strong class="me-auto">Atención</strong>
+                        <%--<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>--%>
+                        <asp:Button Text="" CssClass="btn-close" runat="server" ID="btnCerrarNotificacion" OnClick="btnCerrarNotificacion_Click" />
+                    </div>
+                    <div class="toast-body" style="text-align: center;">
+                        Debe iniciar sesión para añadir favoritos.
+                    </div>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
