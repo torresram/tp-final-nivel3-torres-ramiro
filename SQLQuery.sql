@@ -4,8 +4,10 @@
 --select * from MARCAS
 --select * from USERS
 
+--select IdUser, IdArticulo from FAVORITOS where IdUser=3
+
 --UPDATE USERS SET urlImagenPerfil = '' WHERE Id = 1
---UPDATE USERS SET pass = '' WHERE Id = 1
+--UPDATE USERS SET pass = 'pedro' WHERE Id = 4
 --UPDATE USERS SET nombre = '', apellido = '' WHERE id = 1
 
 --CREATE PROCEDURE storedListar as
