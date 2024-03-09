@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 using System.ComponentModel;
+using System.Configuration;
 
 namespace negocio
 {
@@ -14,7 +15,6 @@ namespace negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
-
         public SqlDataReader Lector
         {
             get { return lector; }
@@ -22,22 +22,19 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true");
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
             comando = new SqlCommand();
         }
-
         public void setConsulta(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
         }
-
         public void setProcedimiento(string sp)
         {
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.CommandText = sp;
         }
-
         public void ejecutarLectura()
         {
             comando.Connection = conexion;
@@ -52,7 +49,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public void ejecutarAccion()
         {
             comando.Connection = conexion;
@@ -67,7 +63,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public int ejecutarAccionScalar()
         {
             comando.Connection = conexion;
@@ -82,12 +77,10 @@ namespace negocio
                 throw ex;
             }
         }
-
         public void setParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
-
         public void cerrarConexion()
         {
             if (lector != null)

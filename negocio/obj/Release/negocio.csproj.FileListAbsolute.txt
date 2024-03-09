@@ -1,0 +1,9 @@
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\bin\Release\negocio.dll
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\bin\Release\negocio.pdb
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\bin\Release\dominio.dll
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\bin\Release\dominio.pdb
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Release\negocio.csproj.AssemblyReference.cache
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Release\negocio.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Release\negocio.csproj.Up2Date
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Release\negocio.dll
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\negocio\obj\Release\negocio.pdb
