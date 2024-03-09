@@ -15,7 +15,6 @@ namespace TiendaVirtual
         {
             txtEmail.Focus();
         }
-
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             UsuarioNegocio negocio = new UsuarioNegocio();
@@ -64,7 +63,6 @@ namespace TiendaVirtual
                 Response.Redirect("Error.aspx", false );
             }
         }
-
         private void checkError(int error)
         {
             switch (error)

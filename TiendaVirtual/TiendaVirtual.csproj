@@ -70,7 +70,6 @@
   <ItemGroup>
     <Content Include="AdmArt.aspx" />
     <Content Include="Articulos.aspx" />
-    <Content Include="Catalogo.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="Error.aspx" />
@@ -95,13 +94,6 @@
     </Compile>
     <Compile Include="Articulos.aspx.designer.cs">
       <DependentUpon>Articulos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Catalogo.aspx.cs">
-      <DependentUpon>Catalogo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Catalogo.aspx.designer.cs">
-      <DependentUpon>Catalogo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

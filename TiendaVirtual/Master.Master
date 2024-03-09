@@ -35,8 +35,6 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Panel de administrador</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="Articulos.aspx">Artículos</a></li>
-                                    <li><a class="dropdown-item" href="#">Usuarios</a></li>
-                                    <li><a class="dropdown-item" href="#">Disponible</a></li>
                                 </ul>
                             </li>
                         </ul>

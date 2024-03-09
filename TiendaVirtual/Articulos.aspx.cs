@@ -24,7 +24,7 @@ namespace TiendaVirtual
             ArticuloNegocio negocio = new ArticuloNegocio();
             Session.Add("listaArticulos", negocio.listarSP());
             dgvArticulos.DataSource = Session["listaArticulos"];
-            dgvArticulos.DataBind();
+            dgvArticulos.DataBind();            
         }
 
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)

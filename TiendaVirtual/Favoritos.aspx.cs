@@ -46,7 +46,6 @@ namespace TiendaVirtual
                 repFavoritos.DataBind();
             }
         }
-
         protected void repFavoritos_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Usuario user = (Usuario)Session["usuario"];

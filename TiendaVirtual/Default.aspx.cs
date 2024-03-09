@@ -30,7 +30,6 @@ namespace TiendaVirtual
                 repRepetidor.DataBind();
             }
         }
-
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             mensajeNoEncontrado.Style.Add("display", "none");
@@ -47,7 +46,39 @@ namespace TiendaVirtual
             repRepetidor.DataBind();
             txtBuscar.Focus();
         }
+        protected void btnAFavorito_Click(object sender, ImageClickEventArgs e)
+        {
+            Usuario user = (Usuario)Session["usuario"];
 
+            if (user != null)
+            {
+                ImageButton btn = (ImageButton)sender;
+
+                //string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
+                //string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
+                string noEsFav = ResolveUrl("~/Images/heart.png");
+                string esFav = ResolveUrl("~/Images/heartFill.png");
+
+                if (btn.ImageUrl == noEsFav)
+                {
+                    favEstado = false;
+                    btn.ImageUrl = esFav;
+                }
+                else
+                {
+                    favEstado = true;
+                    btn.ImageUrl = noEsFav;
+                }
+            }
+            else
+            {
+                toast.Style.Add("display", "block");
+            }
+        }
+        protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
+        {
+            toast.Style.Remove("display");
+        }
         protected void repRepetidor_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Info")
@@ -91,40 +122,6 @@ namespace TiendaVirtual
                 }
             }
         }
-        protected void btnAFavorito_Click(object sender, ImageClickEventArgs e)
-        {
-            Usuario user = (Usuario)Session["usuario"];
-
-            if (user != null)
-            {
-                ImageButton btn = (ImageButton)sender;
-
-                //string noEsFav = "https://www.iconninja.com/files/561/918/415/heart-icon.png";
-                //string esFav = "https://icons.iconarchive.com/icons/paomedia/small-n-flat/128/heart-icon.png";
-                string noEsFav = ResolveUrl("~/Images/heart.png");
-                string esFav = ResolveUrl("~/Images/heartFill.png");
-
-                if (btn.ImageUrl == noEsFav)
-                {
-                    favEstado = false;
-                    btn.ImageUrl = esFav;
-                }
-                else
-                {
-                    favEstado = true;
-                    btn.ImageUrl = noEsFav;
-                }
-            }
-            else
-            {
-                toast.Style.Add("display", "block");
-            }
-        }
-        protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
-        {
-            toast.Style.Remove("display");
-        }
-
         protected void repRepetidor_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Usuario user = (Usuario)Session["usuario"];

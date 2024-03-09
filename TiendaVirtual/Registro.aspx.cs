@@ -16,7 +16,6 @@ namespace TiendaVirtual
         {
 
         }
-
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
             try
@@ -24,15 +23,23 @@ namespace TiendaVirtual
                 Usuario usuario = new Usuario();
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 EmailService emailService = new EmailService();
+                string email = txtEmail.Text;
+                string pass = txtPassword.Text;
 
-                usuario.Email = txtEmail.Text;
-                usuario.Password = txtPassword.Text;
-                usuario.Id = negocio.nuevoUsuario(usuario);
-                Session.Add("usuario", usuario);
-
-                emailService.nuevoCorreo(usuario.Email, "Bienvenido a la Tienda Virtual", "Hola te damos la bienvenida a la mejor tienda del universo conocido");
-                emailService.enviarEmail();
-                Response.Redirect("Default.aspx", false);
+                if(!string.IsNullOrEmpty(email) || !string.IsNullOrEmpty(pass))
+                {
+                    usuario.Email = txtEmail.Text;
+                    usuario.Password = txtPassword.Text;
+                    usuario.Id = negocio.nuevoUsuario(usuario);
+                    Session.Add("usuario", usuario);
+                    Response.Redirect("MiPerfil.aspx", false);
+                }
+                else
+                {
+                    registroMensajes.Style.Remove("display");
+                    registroMensajes.Style.Add("color", "red");
+                    registroMensajes.InnerHtml = "Los campos no pueden ser vacíos";
+                }
             }
             catch (Exception ex)
             {

@@ -122,7 +122,7 @@ namespace TiendaVirtual
         }
         protected void btnCancelarPass_Click(object sender, EventArgs e)
         {
-            
+            txtFormato();
         }
         protected void btnPerfilImg_Click(object sender, EventArgs e)
         {
@@ -191,7 +191,6 @@ namespace TiendaVirtual
                 liveToast.Style.Add("display", "block");
             }
         }
-
         protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
         {
             liveToast.Style.Remove("display");

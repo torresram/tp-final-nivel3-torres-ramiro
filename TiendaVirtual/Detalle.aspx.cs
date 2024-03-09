@@ -73,12 +73,10 @@ namespace TiendaVirtual
             urlAnterior = Session["urlAnterior"] != null ? Session["urlAnterior"].ToString() : "Default.aspx";
             Response.Redirect(urlAnterior);
         }
-
         protected void btnAlCarrito_Click(object sender, EventArgs e)
         {
 
         }
-
         protected void btnAFavoritos_Click(object sender, EventArgs e)
         {
             FavoritosNegocio favorito = new FavoritosNegocio();
@@ -107,7 +105,6 @@ namespace TiendaVirtual
                 toast.Style.Add("display", "block");
             }
         }
-
         protected void btnCerrarNotificacion_Click(object sender, EventArgs e)
         {
             toast.Style.Remove("display");

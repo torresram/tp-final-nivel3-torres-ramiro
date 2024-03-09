@@ -13,7 +13,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <h2 class="text-center display-6">Bienvenido a la tienda virtual con precios y artículos del 2020 o antes</h2>
-    <asp:UpdatePanel runat="server" ChildrenAsTriggers="true">
+    <asp:UpdatePanel runat="server" >
         <ContentTemplate>
             <div class="row row-cols-md-2 g-4">
                 <div class="d-flex" style="padding-top: 60px; margin: auto;">
@@ -36,7 +36,7 @@
                                     </div>
                                     <h5 class="card-title"><%#Eval("Nombre") %></h5>
                                     <p class="card-text" style="font-size: small;"><%#Eval("Marca")%></p>
-                                    <p class="card-text lead" style="font-weight: 400">$<%#(Math.Truncate(100 * (decimal)Eval("Precio")) / 100)%></p>
+                                    <p class="card-text lead" style="font-weight: 400; text-align:end;">$<%#(Math.Truncate(100 * (decimal)Eval("Precio")) / 100)%></p>
                                     <div class="d-flex">
                                         <asp:Button Text="Añadir al carrito" runat="server" ID="btnAddCarrito" CssClass="btn btn-warning btn-sm" />
                                         <asp:LinkButton ID="lnkMasInfo" runat="server" Style="padding-left: 10px; font-size: small; align-self: center;" CommandName="Info" CommandArgument='<%#Eval("Id") %>'>Más información</asp:LinkButton>

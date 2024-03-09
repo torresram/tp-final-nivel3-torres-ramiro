@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <asp:ScriptManager runat="server" />
     <div class="row">
         <h2 class="display-6" style="margin-bottom: 20px;" runat="server" id="h2Titulo">Modificar artículo</h2>
         <div class="col" style="border: solid 2px #bab6b6; border-radius: 20px; position: relative; margin: auto;">
@@ -22,14 +22,42 @@
                         <div runat="server" id="nombreMensajes" style="padding: 3px; font-size: 13px; display: none;">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="ddlMarca" class="form-label">Marca</label>
-                        <asp:DropDownList runat="server" ID="ddlMarca" CssClass="form-select" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="ddlCategoria" class="form-label">Categoría</label>
-                        <asp:DropDownList runat="server" ID="ddlCategoria" CssClass="form-select" />
-                    </div>
+                    <asp:UpdatePanel runat="server">
+                        <ContentTemplate>
+                            <div class="mb-3">
+                                <label for="ddlMarca" class="form-label">Marca</label>
+                                <div class="d-flex mb-3">
+                                    <asp:DropDownList runat="server" ID="ddlMarca" CssClass="form-select" />
+                                    <asp:ImageButton ImageUrl="./Images/plus.png" runat="server" ID="btnNuevaMarca" Style="height: 38px; padding: 5px;" OnClick="btnNuevaMarca_Click" />
+                                </div>
+                                <div class="col-6 d-flex" runat="server" id="divAgregarMarca" style="display: none;">
+                                    <asp:TextBox CssClass="form-control" ID="txtNuevaMarca" runat="server" />
+                                    <asp:ImageButton ImageUrl="./Images/check.png" runat="server" Style="height: 38px; padding: 5px;" ID="btnOkMarca" OnClick="btnOkMarca_Click" />
+                                    <asp:ImageButton ImageUrl="./Images/cancel.png" runat="server" Style="height: 38px; padding: 5px;" ID="btnCancelMarca" OnClick="btnCancelMarca_Click" />
+                                </div>
+                                <div runat="server" id="marcaMensajes" style="padding: 3px; font-size: 13px; display: none;">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ddlCategoria" class="form-label">Categoría</label>
+                                <div class="d-flex mb-3">
+                                    <asp:DropDownList runat="server" ID="ddlCategoria" CssClass="form-select" />
+                                    <asp:ImageButton ImageUrl="./Images/plus.png" runat="server" ID="btnNuevaCategoria" Style="height: 38px; padding: 5px;" OnClick="btnNuevaCategoria_Click" />
+                                </div>
+                                <div class="col-6 d-flex" runat="server" id="divAgregarCategoria" style="display: none;">
+                                    <asp:TextBox CssClass="form-control" ID="txtNuevaCategoria" runat="server" />
+                                    <asp:ImageButton ImageUrl="./Images/check.png" runat="server" Style="height: 38px; padding: 5px;" ID="btnOkCategoria" OnClick="btnOkCategoria_Click" />
+                                    <asp:ImageButton ImageUrl="./Images/cancel.png" runat="server" Style="height: 38px; padding: 5px;" ID="btnCancelCategoria" OnClick="btnCancelCategoria_Click" />
+                                </div>
+                                <div runat="server" id="categoriaMensajes" style="padding: 3px; font-size: 13px; display: none;">
+                                </div>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="btnOkMarca" />
+                            <asp:PostBackTrigger ControlID="btnOkCategoria" />
+                        </Triggers>
+                    </asp:UpdatePanel>
                     <div class="mb-3">
                         <label for="txtPrecio" class="form-label">Precio</label>
                         <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
@@ -64,13 +92,13 @@
                 <%
                     if (ConfirmarEliminar)
                     {%>
-                <div class="mb-3" style="margin:10px auto; border: solid 2px red; border-radius: 10px; padding:10px;">
-                    <div class="form-check form-switch" style="width:fit-content; margin: 0px auto 15px;">
+                <div class="mb-3" style="margin: 10px auto; border: solid 2px red; border-radius: 10px; padding: 10px;">
+                    <div class="form-check form-switch" style="width: fit-content; margin: 0px auto 15px;">
                         <input class="form-check-input" type="checkbox" role="switch" id="chkEliminar" runat="server">
                         <label class="form-check-label" for="flexSwitchCheckDefault">Confirmar eliminación</label>
                     </div>
                     <div class="row">
-                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnConfirmaEliminar" runat="server" OnClick="btnConfirmaEliminar_Click" style="width:fit-content; margin:auto;"/>
+                        <asp:Button Text="Eliminar" CssClass="btn btn-danger" ID="btnConfirmaEliminar" runat="server" OnClick="btnConfirmaEliminar_Click" Style="width: fit-content; margin: auto;" />
                     </div>
                 </div>
                 <%}%>
