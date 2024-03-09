@@ -4,6 +4,8 @@
 --select * from MARCAS
 --select * from USERS
 
+--SELECT Id, email,pass,nombre,apellido,urlImagenPerfil, admin FROM USERS
+
 --select IdUser, IdArticulo from FAVORITOS where IdUser=3
 
 --UPDATE USERS SET urlImagenPerfil = '' WHERE Id = 1
@@ -18,7 +20,7 @@
 --insert into ARTICULOS (Codigo, Nombre,Descripcion,IdMarca, IdCategoria, ImagenUrl,Precio)
 --VALUES ('ABC', 'River', 'Plate', 3,1,'no hay', 3452.6457)
 
---delete from ARTICULOS where id = 6
+--delete from USERS where id = 7
 
 --create procedure storedArticulo @id int as
 --SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.ImagenUrl, A.IdMarca, A.IdCategoria, A.Precio 
