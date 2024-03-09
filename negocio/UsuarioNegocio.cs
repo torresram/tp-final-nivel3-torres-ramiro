@@ -12,6 +12,36 @@ namespace negocio
     public class UsuarioNegocio
     {
         public AccesoDatos datos = new AccesoDatos();
+
+        public List<Usuario> listaUsers()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            try
+            {
+                datos.setConsulta("SELECT Id, email,pass,nombre,apellido,urlImagenPerfil, admin FROM USERS");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Email = (string)datos.Lector["email"];
+                    aux.Password = (string)datos.Lector["pass"];
+                    aux.Nombre = (string)datos.Lector["nombre"];
+                    aux.Apellido = (string)datos.Lector["apellido"];
+                    aux.UrlImagen = (string)datos.Lector["urlImagenPerfil"];
+                    aux.EsAdmin = (bool)datos.Lector["admin"];
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
         public int nuevoUsuario(Usuario nuevo)
         {
             try
@@ -26,7 +56,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public void actualizarImg(Usuario usuario)
         {
             try
@@ -42,7 +71,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void actualizarPass(Usuario usuario)
         {
             try
@@ -58,7 +86,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
-
         public void actualizarDatos(Usuario usuario)
         {
             try
@@ -75,7 +102,6 @@ namespace negocio
             }
             finally { datos.cerrarConexion() ; } 
         }
-
         public bool login(Usuario usuario)
         {
             try

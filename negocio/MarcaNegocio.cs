@@ -42,13 +42,13 @@ namespace negocio
             }
         }
 
-        public void agregarMarca(Marca nueva)
+        public void agregarMarca(string nueva)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setConsulta("INSERT INTO MARCAS (Descripcion) VALUES (@Marca)");
-                datos.setParametro("@Marca", nueva.Descripcion);
+                datos.setParametro("@Marca", nueva);
 
                 datos.ejecutarAccion();
             }

@@ -41,15 +41,14 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
-        public void agregarCategoria(Categoria nueva)
+        public void agregarCategoria(string nueva)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
                 datos.setConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Categoria)");
-                datos.setParametro("@Categoria", nueva.Descripcion);
+                datos.setParametro("@Categoria", nueva);
 
                 datos.ejecutarAccion();
             }
@@ -63,7 +62,6 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
         public bool validarCategoria(string categoria)
         {
             List<Categoria> lista = new List<Categoria>();
