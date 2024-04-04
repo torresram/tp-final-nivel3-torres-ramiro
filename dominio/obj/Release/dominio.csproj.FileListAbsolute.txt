@@ -1,0 +1,6 @@
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\bin\Release\dominio.dll
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\bin\Release\dominio.pdb
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\obj\Release\dominio.csproj.AssemblyReference.cache
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\obj\Release\dominio.csproj.CoreCompileInputs.cache
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\obj\Release\dominio.dll
+C:\Users\ramir\Documents\programacion\MaxPrograma\Curso C#\Nivel 3\TPFinalNivel3TorresRamiro\dominio\obj\Release\dominio.pdb
