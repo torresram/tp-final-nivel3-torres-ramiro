@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="row" style="margin: 0px auto;">
         <h2 class="display-6">Creá tu usuario</h2>
-        <div class="col-md-4" style="position: relative; margin: 15px auto; border: solid 2px #bab6b6; border-radius: 20px; padding: 20px;">
+        <div class="col-md-4" style="position: relative; margin: 15px auto; border: solid 2px #bab6b6; border-radius: 20px; padding: 20px; max-width:95%;">
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="txtEmail" />

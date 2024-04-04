@@ -13,6 +13,13 @@
                 width: 65%;
             }
         }
+
+        @media (max-width:768px){
+            .col-6 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
@@ -69,8 +76,8 @@
                 <div class="mb-3">
                     <asp:UpdatePanel runat="server" ID="upDatos" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:Button Text="Cambiar contraseña" runat="server" CssClass="btn btn-success btn-sm" ID="btnCambiarPass" OnClick="btnCambiarPass_Click" />
-                            <asp:Button Text="Guardar cambios" CssClass="btn btn-warning btn-sm" ID="btnGuardarDatos" OnClick="btnGuardarDatos_Click" runat="server" Style="left: 57%; position: relative;" />
+                            <asp:Button Text="Cambiar contraseña" runat="server" CssClass="btn btn-success btn-sm g-2" ID="btnCambiarPass" OnClick="btnCambiarPass_Click" />
+                            <asp:Button Text="Guardar cambios" CssClass="btn btn-warning btn-sm g-2" ID="btnGuardarDatos" OnClick="btnGuardarDatos_Click" runat="server" />
                             <div class="col-6" runat="server" id="cambiarPassDiv" style="display: none;">
                                 <div class="mb-3">
                                     <label class="form-label">Contraseña actual:</label>
@@ -99,7 +106,6 @@
                                         <img src="./Images/notificacion.png" class="rounded me-2" alt="alerta" style="height: 20px;">
                                         <strong class="me-auto">Usuario</strong>
                                         <small>Cambio de datos</small>
-                                        <%--<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>--%>
                                         <asp:Button Text="" CssClass="btn-close" runat="server" ID="btnCerrarNotificacion" OnClick="btnCerrarNotificacion_Click" />
                                     </div>
                                     <div class="toast-body" style="text-align: center;">

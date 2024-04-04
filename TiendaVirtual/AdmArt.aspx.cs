@@ -135,7 +135,7 @@ namespace TiendaVirtual
                     txtNombre.BorderWidth = 1;
                 }
 
-                string checkCadena = txtPrecio.Text.Replace('.', ',');
+                string checkCadena = txtPrecio.Text;//.Replace('.', ',');
 
                 if (soloNumeros(checkCadena))
                 {
@@ -231,6 +231,7 @@ namespace TiendaVirtual
                     negocio.agregarMarca(chkMarca);
                     cargarDDL(0);
                     divAgregarMarca.Visible = false;
+                    marcaMensajes.Style.Add("display", "none");
                     btnNuevaMarca.Enabled = true;
                 }
                 else
@@ -272,6 +273,7 @@ namespace TiendaVirtual
                     negocio.agregarCategoria(chkCategoria);
                     cargarDDL(2);
                     divAgregarCategoria.Visible = false;
+                    categoriaMensajes.Style.Add("display", "none");
                     btnNuevaCategoria.Enabled = true;
                 }
                 else
@@ -384,7 +386,7 @@ namespace TiendaVirtual
         {
             foreach (char caracter in cadena)
             {
-                if (!(char.IsNumber(caracter) || caracter == ','))
+                if (!(char.IsNumber(caracter) || caracter == '.'))
                 {
                     return false;
                 }

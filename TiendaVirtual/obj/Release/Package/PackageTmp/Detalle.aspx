@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Detalle.aspx.cs" Inherits="TiendaVirtual.Detalle" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        @media (max-width:768px) {
+            .col-6 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <asp:ScriptManager runat="server" />
@@ -54,15 +62,15 @@
     </div>
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-            <div class="row row-cols-3" style="margin-top: 30px;">
-                <div class="col-6 d-flex">
-                    <asp:Button Text="Volver..." CssClass="btn btn-outline-info btn-sm" ID="btnVolver" runat="server" OnClick="btnVolver_Click" Style="width: fit-content; position: relative; margin: 0px 52%;" />
+            <div class="d-flex col-6 flex-wrap-reverse" style="margin: 30px auto 0px;">
+                <div class="me-auto p-2">
+                    <asp:Button Text="Volver..." CssClass="btn btn-outline-info btn-sm" ID="btnVolver" runat="server" OnClick="btnVolver_Click" Style="width: fit-content;" />
                 </div>
-                <div class="col d-flex align-self-end" style="width: fit-content;">
-                    <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-warning btn-sm" Style="margin: 0px 56%;" OnClick="btnAlCarrito_Click" />
+                <div class="p-2" style="width: fit-content;">
+                    <asp:Button Text="Añadir al carrito" runat="server" ID="btnAlCarrito" CssClass="btn btn-warning btn-sm" OnClick="btnAlCarrito_Click" />
                 </div>
-                <div class="col d-flex align-self-end" style="width: fit-content;">
-                    <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success btn-sm" Style="margin: 0px 36%;" OnClick="btnAFavoritos_Click" />
+                <div class="p-2" style="width: fit-content;">
+                    <asp:Button Text="Añadir a favoritos" runat="server" ID="btnAFavoritos" CssClass="btn btn-success btn-sm" OnClick="btnAFavoritos_Click" />
                 </div>
             </div>
             <div class="toast-container position-fixed bottom-0 end-0 p-3">
