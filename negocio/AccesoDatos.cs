@@ -23,6 +23,7 @@ namespace negocio
         public AccesoDatos()
         {
             conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
+            //conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true");
             comando = new SqlCommand();
         }
         public void setConsulta(string consulta)
